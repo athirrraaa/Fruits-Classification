@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit Classification System</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+
+            background: linear-gradient(
+                135deg,
+                #ff9966,
+                #ff5e62
+            );
+        }
+
+        .container{
+            width:500px;
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 10px 30px rgba(0,0,0,0.2);
+            text-align:center;
+        }
+
+        h1{
+            color:#333;
+            margin-bottom:10px;
+        }
+
+        p{
+            color:#666;
+            margin-bottom:25px;
+        }
+
+        .upload-box{
+            border:2px dashed #ff7b54;
+            padding:25px;
+            border-radius:15px;
+            margin-bottom:20px;
+        }
+
+        input[type=file]{
+            width:100%;
+            padding:10px;
+        }
+
+        button{
+            background:#ff6b6b;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:10px;
+            cursor:pointer;
+            font-size:16px;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#ff4757;
+            transform:scale(1.05);
+        }
+
+        .result{
+            margin-top:25px;
+            padding:20px;
+            background:#f1fff2;
+            border-left:5px solid green;
+            border-radius:10px;
+        }
+
+        .result h2{
+            color:green;
+        }
+
+        .emoji{
+            font-size:50px;
+            margin-bottom:15px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="emoji">
+            🍎 🍌 🍇 🍓🥭
+        </div>
+
+        <h1>Fruit Classification System</h1>
+
+        <p>
+            Upload a fruit image and let the machine identify it for you!
+        </p>
+
+        <form
+            action="/predict"
+            method="post"
+            enctype="multipart/form-data">
+
+            <div class="upload-box">
+
+                <input
+                    type="file"
+                    name="image"
+                    accept=".jpg,.jpeg,.png"
+                    required>
+
+            </div>
+
+            <button type="submit">
+                Predict Fruit
+            </button>
+
+        </form>
+
+        {% if prediction %}
+
+        <div class="result">
+
+            <h2>
+                Prediction Result
+            </h2>
+
+            <br>
+
+            <h1>
+                {{ prediction }}
+            </h1>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
