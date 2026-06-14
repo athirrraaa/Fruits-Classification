@@ -1,0 +1,1 @@
+Folder ini akan berisikan confusion_matrix_knn.png dan confusion_matrix_svm.png

@@ -1,0 +1,1 @@
+Folder ini digunakan untuk menyimpan model hasil train_model.py
